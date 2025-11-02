@@ -4,19 +4,21 @@ import { useRef, useState, useEffect } from 'react'
 import Albumcard from './Albumcard'
 
 function Popularalbums() {
-    const albums = [
-        { cover:'/images/twitter.png', name:'album1', singer:'singer1,singer2' },
-        { cover:'/images/twitter.png', name:'album2', singer:'singer1,singer2' },
-        { cover:'/images/twitter.png', name:'album3', singer:'singer1,singer2' },
-        { cover:'/images/twitter.png', name:'album4', singer:'singer1,singer2' },
-        { cover:'/images/twitter.png', name:'album5', singer:'singer1,singer2' },
-        { cover:'/images/twitter.png', name:'album6', singer:'singer1,singer2' },
-        { cover:'/images/twitter.png', name:'album7', singer:'singer1,singer2' },
-        { cover:'/images/twitter.png', name:'album8', singer:'singer1,singer2' },
-        { cover:'/images/twitter.png', name:'album9', singer:'singer1,singer2' },
-        { cover:'/images/twitter.png', name:'album10', singer:'singer1,singer2' },
-    ];
+  const [albums, setAlbums] = useState([]);
+  useEffect(() => {
+    const fetchAlbums = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/albums");
+        const data = await response.json();
+        setAlbums(data.albums.items);
+        console.log(data.albums.items);
+      } catch (err) {
+        console.log(err);
+      }
+    };
 
+    fetchAlbums();
+  }, []);
     const scrollRef = useRef(null);
     const [showLeft, setShowLeft] = useState(false);
     const [showRight, setShowRight] = useState(true);

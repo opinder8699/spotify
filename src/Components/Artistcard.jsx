@@ -5,12 +5,12 @@ function Artistcard({ artist }) {
   return (
     <div className="artistcard">
       <div className="imagewrapper">
-        <img src={artist.cover} className="artistimage" alt={artist.name} />
+        <img src={artist.images[0]?.url} className="artistimage" alt={artist.name} />
         <button className="playbutton">
           <FaPlay className="playicon" />
         </button>
       </div>
-      <h2 className="artistname">{artist.name}</h2>
+      <h3 className="artisttname">{artist.name}</h3>
     </div>
   );
 }

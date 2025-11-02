@@ -37,24 +37,33 @@
   color: #fff;
   text-align: center;
   margin: 5px 0;
-  white-space: nowrap;            
+  display: -webkit-box;           
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;          
+  line-clamp: 2;
   overflow: hidden;               
-  text-overflow: ellipsis;        
+  line-height: 1.2em;
+  max-height: calc(1.2em * 2);    
+  text-overflow: ellipsis;
 }
+
 
 .singername {
   font-size: 14px;
   font-weight: 500;
   color: #aaa;
   text-align: center;
-  display: -webkit-box;           
+  margin-top: 2px;
+  width: 100%;                  
+  display: -webkit-box;         
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;   
-  line-clamp: 2;
-  overflow: hidden;               
-  line-height: 1.2em;
-  max-height: calc(1.2em * 2);    
+  -webkit-line-clamp: 2;    
+   line-clamp: 2;   
+  overflow: hidden;
   text-overflow: ellipsis;
+  line-height: 1.2em;
+  max-height: calc(1.2em * 2);
+  word-break: break-word;      
 }
 
 

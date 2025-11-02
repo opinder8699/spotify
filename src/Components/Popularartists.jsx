@@ -4,20 +4,22 @@ import { useRef, useState, useEffect } from 'react'
 import Artistcard from './Artistcard.jsx'
 
 function Popularartists(){
-    const artists=[
-        { cover:'/images/facebook.jpg', name:'artist1' },
-        { cover:'/images/facebook.jpg', name:'artist2' },
-        { cover:'/images/facebook.jpg', name:'artist3' },
-        { cover:'/images/facebook.jpg', name:'artist4' },
-        { cover:'/images/facebook.jpg', name:'artist5' },
-        { cover:'/images/facebook.jpg', name:'artist6' },
-        { cover:'/images/facebook.jpg', name:'artist7' },
-        { cover:'/images/facebook.jpg', name:'artist8' },
-        { cover:'/images/facebook.jpg', name:'artist9' },
-        { cover:'/images/facebook.jpg', name:'artist10' }
-    ]
-
-    const scrollRef = useRef(null);
+   const [artists,setArtists]=useState([]);
+  useEffect(()=>{
+    const fetchartists=async()=>{
+      try{
+      const url="http://localhost:5000/api/artists";
+      const response=await fetch(url);
+      const data=await response.json();
+      setArtists(data.artists.items);
+      }
+      catch(err){
+      console.log(err);
+      }
+    }
+    fetchartists();
+  },[])
+   const scrollRef = useRef(null);
     const [showLeft, setShowLeft] = useState(false);
     const [showRight, setShowRight] = useState(true);
 

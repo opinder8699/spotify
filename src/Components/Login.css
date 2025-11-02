@@ -1,0 +1,146 @@
+body {
+  margin: 0;
+  font-family: "Circular Std", Arial, sans-serif;
+  background-color: black;
+  color: white;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-box {
+  width: 380px;
+  text-align: center;
+  padding: 40px;
+  border-radius: 8px;
+  background-color: #121212;
+}
+
+.spotify-logo {
+  width: 50px;
+  margin-bottom: 20px;
+}
+
+.login-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.login-form {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.login-form label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #b3b3b3;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  border: 1px solid #333;
+  background-color: #000;
+  color: white;
+  font-size: 14px;
+  outline: none;
+}
+
+.login-form input:focus {
+  border: 1px solid #1db954;
+}
+
+.continue-btn {
+  width: 100%;
+  background-color: #1db954;
+  color: black;
+  font-weight: 600;
+  border: none;
+  border-radius: 25px;
+  padding: 14px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.continue-btn:hover {
+  background-color: #1ed760;
+}
+.error-text {
+  color: #e91429;
+  font-size: 13px;
+  margin: 6px 0 12px;
+  display: flex;
+  align-items: center;
+}
+
+.error-icon {
+  margin-right: 6px;
+}
+.divider {
+  margin: 20px 0;
+  color: #b3b3b3;
+  font-size: 14px;
+}
+
+.phone-btn {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #727272;
+  background-color: transparent;
+  color: white;
+  border-radius: 25px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.phone-btn:hover {
+  background-color: #2a2a2a;
+}
+
+.signup-text {
+  margin-top: 30px;
+  font-size: 14px;
+  color: #b3b3b3;
+}
+
+.signup-text a {
+  color: white;
+  text-decoration: underline;
+}
+.login-error {
+  color: #e91429;
+  font-size: 15px;
+  text-align: center;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.error-bold {
+  font-weight: 700;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

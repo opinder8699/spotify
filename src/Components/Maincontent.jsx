@@ -1,5 +1,4 @@
 import Artistcard from './Artistcard'
-import './Maincontent.css'
 import Popularalbums from './Popularalbums'
 import Popularartists from './Popularartists'
 import PopularRadio from './Popularradio'
@@ -11,7 +10,7 @@ function Maincontent(){
   <Trendingsongs/>
   <Popularartists/>
   <Popularalbums/>
-  <PopularRadio/>
+  {/* <PopularRadio/> */}
     </div>
     </>
   )

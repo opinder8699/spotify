@@ -5,17 +5,24 @@ function AlbumCard({ album }) {
   return (
     <div className="albumcard">
       <div className="imagewrapper">
-        <img src={album.cover} alt={album.name} className="albumimage" />
+        <img
+          src={album.images[0].url}
+          className="albumimage"
+          alt={album.collectionName}
+        />
         <button className="playbutton">
-          <FaPlay />
+          <FaPlay className="playicon" />
         </button>
       </div>
-      <h3 className="albumname">{album.name}</h3>
-      <p className="singername">{album.singer}</p>
+      <h3 className="a">{album.name}</h3>
+       <p className="artistnames">
+        {album.artists.map((artist) => artist.name).join(", ")}
+      </p>
     </div>
   );
 }
 
 export default AlbumCard;
+
 
 

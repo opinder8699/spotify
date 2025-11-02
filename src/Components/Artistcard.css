@@ -18,9 +18,9 @@
 
 .imagewrapper {
   position: relative;         
-  width: 120px;               /* circular image size */
+  width: 120px;              
   height: 120px;
-  border-radius: 50%;          /* keep circular */
+  border-radius: 50%;        
   overflow: hidden;
 }
 
@@ -28,21 +28,20 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 50%;          /* maintain circle */
+  border-radius: 50%;        
 }
-
-.artistname {
-  font-size: 14px;
+  
+  .artisttname {
+  font-size: 16px;
   font-weight: 600;
   color: #fff;
   text-align: center;
   margin-top: 8px;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
-/* Play button at bottom-right of circular image */
+
 .playbutton {
   position: absolute;
   bottom: 5px;               
