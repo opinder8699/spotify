@@ -3,14 +3,14 @@ import Popularalbums from './Popularalbums'
 import Popularartists from './Popularartists'
 import PopularRadio from './Popularradio'
 import Trendingsongs from './Trendingsongs'
-function Maincontent(){
+import Searchpage from './Searchpage'
+function Maincontent({ likedsongs, setLikedsongs }){
   return(
     <>
     <div className="content">
-  <Trendingsongs/>
+  <Trendingsongs likedsongs={likedsongs} setLikedsongs={setLikedsongs}/>
   <Popularartists/>
   <Popularalbums/>
-  {/* <PopularRadio/> */}
     </div>
     </>
   )

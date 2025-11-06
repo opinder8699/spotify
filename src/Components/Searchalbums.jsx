@@ -1,23 +1,10 @@
-
-import './Popularalbums.css'
+import './Searchalbums.css'
 import { useRef, useState, useEffect } from 'react'
 import Albumcard from './Albumcard'
 
-function Popularalbums() {
-  const [albums, setAlbums] = useState([]);
-  useEffect(() => {
-    const fetchAlbums = async () => {
-      try {
-        const response = await fetch("http://localhost:5000/api/albums");
-        const data = await response.json();
-        setAlbums(data.albums.items);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
-    fetchAlbums();
-  }, []);
+function Searchalbums({albums}) {
+ 
+  
     const scrollRef = useRef(null);
     const [showLeft, setShowLeft] = useState(false);
     const [showRight, setShowRight] = useState(true);
@@ -53,8 +40,7 @@ function Popularalbums() {
     return (
         <div className="popularalbums-section">
             <div className="popularalbums-header">
-                <h2>Popular Albums</h2>
-                <a href="/albums" className="show-all">Show all</a>
+                <h2>Albums</h2>
             </div>
 
             <div className="scroll-container">
@@ -86,4 +72,4 @@ function Popularalbums() {
     );
 }
 
-export default Popularalbums;
+export default Searchalbums;

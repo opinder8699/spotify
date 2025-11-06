@@ -1,26 +1,12 @@
-import './Trendingsong.css'
+import './Searchsong.css'
 import Songcard from './Songcard.jsx'
 import { useRef, useState, useEffect } from 'react';
 
-function Trendingsongs({ likedsongs, setLikedsongs }) {
+function Searchsong({tracks}) {
     const songsRowRef = useRef(null);
     const [showLeft, setShowLeft] = useState(false);
-    const [showRight, setShowRight] = useState(true);
-
-    const [songs,setSongs]=useState([]);
-    useEffect(()=>{
-        const fetchSongs=async()=>{
-            try{
-            const response=await fetch("http://localhost:5000/api/songs");
-            const data=await response.json();
-             setSongs(data.tracks.items);
-            }catch(err){
-                console.log(err);
-            }
-        }
-        
-    fetchSongs();
-    },[])
+    const [showRight, setShowRight] = useState(true);   
+ 
 
     const scrollLeft = () => {
         songsRowRef.current.scrollBy({ left: -300, behavior: 'smooth' });
@@ -53,8 +39,7 @@ function Trendingsongs({ likedsongs, setLikedsongs }) {
     return (
         <div className="trendingsongs-section">
             <div className="trendingsongs-header">
-                <h2>Trending Songs</h2>
-                <a href="/songs" className="show-all">Show all</a>
+                <h2>Songs</h2>
             </div>
 
             <div className="scroll-container">
@@ -65,12 +50,9 @@ function Trendingsongs({ likedsongs, setLikedsongs }) {
                 )}
 
                 <div className="songs-row" ref={songsRowRef}>
-                    {songs.map((song, index) => (
+                    {tracks.map((song, index) => (
                         <div className="songcard-wrapper" key={index}>
-                            <Songcard song={song }
-                              likedsongs={likedsongs}
-          setLikedsongs={setLikedsongs}
-                            />
+                            <Songcard song={song} />
                         </div>
                     ))}
                 </div>
@@ -85,5 +67,4 @@ function Trendingsongs({ likedsongs, setLikedsongs }) {
     );
 }
 
-export default Trendingsongs;
-
+export default Searchsong;

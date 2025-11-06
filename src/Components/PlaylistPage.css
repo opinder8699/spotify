@@ -1,0 +1,280 @@
+/* ---------- PAGE CONTAINER ---------- */
+.playlist-container {
+  background-color: #121212;
+  color: #fff;
+  min-height: 100vh;
+  padding: 60px 100px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ---------- HEADER ---------- */
+.playlist-header {
+  margin-bottom: 40px;
+}
+
+.playlist-title {
+  font-size: 56px;
+  font-weight: 700;
+  margin: 0;
+}
+
+
+
+/* Editable playlist title */
+.playlist-title.editable {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.playlist-title.editable:hover {
+  color: #1db954;
+}
+
+.playlist-title-input {
+  font-size: 56px;
+  font-weight: 700;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #1db954;
+  color: #fff;
+  outline: none;
+  width: 100%;
+  max-width: 500px;
+}
+
+/* ---------- PLAYLIST TABLE ---------- */
+.playlist-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 40px;
+  background-color: #181818;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.playlist-table th,
+.playlist-table td {
+  text-align: left;
+  padding: 14px 10px;
+  border-bottom: 1px solid #2a2a2a;
+  vertical-align: middle;
+  font-size: 15px;
+  color: #ddd;
+}
+
+.playlist-table th {
+  color: #b3b3b3;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.playlist-table tr:hover td {
+  background-color: #1e1e1e;
+  transition: 0.2s ease;
+}
+
+/* ---------- SONG INFO IN PLAYLIST TABLE ---------- */
+.song-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.song-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 6px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.song-title {
+  font-weight: 500;
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.3;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.song-artist {
+  color: #b3b3b3;
+  font-size: 14px;
+  line-height: 1.3;
+  white-space: normal;
+  word-wrap: break-word;
+  margin-top: 2px;
+}
+
+/* Album perfectly centered */
+.album-center {
+  text-align: center;
+  color: #b3b3b3;
+  font-size: 15px;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+/* Duration column */
+.playlist-table td:nth-child(4) {
+  color: #b3b3b3;
+  font-size: 14px;
+}
+
+/* ---------- REMOVE BUTTON ---------- */
+.remove-button {
+  background: transparent;
+  border: none;
+  color: #b3b3b3;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.remove-button:hover {
+  color: #ff4d4d;
+  transform: scale(1.2);
+}
+
+/* ---------- SEARCH INPUT ---------- */
+.playlist-body {
+  margin-top: 40px;
+}
+
+.playlist-subtitle {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.playlist-search {
+  width: 100%;
+  max-width: 400px;
+  background-color: #242424;
+  border: none;
+  border-radius: 4px;
+  padding: 14px 16px 14px 42px;
+  color: #fff;
+  font-size: 16px;
+  outline: none;
+  background-image: url('https://cdn-icons-png.flaticon.com/512/622/622669.png');
+  background-size: 18px;
+  background-position: 14px center;
+  background-repeat: no-repeat;
+  transition: all 0.2s ease;
+}
+
+.playlist-search::placeholder {
+  color: #b3b3b3;
+}
+
+.playlist-search:hover {
+  border: 1px solid #1db954;
+  box-shadow: 0 0 5px #1db954;
+}
+
+/* ---------- SEARCH RESULTS (SONGS FROM API) ---------- */
+.search-results {
+  margin-top: 20px;
+}
+
+.search-item {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr auto;
+  align-items: center;
+  background-color: #242424;
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.search-item:hover {
+  background-color: #2b2b2b;
+  transform: scale(1.02);
+}
+
+/* Search item left part */
+.search-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.search-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 4px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.song-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.song-details .song-title {
+  font-weight: 500;
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.song-details .song-artist {
+  color: #b3b3b3;
+  font-size: 14px;
+  line-height: 1.3;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+/* Center album in search results */
+.song-album {
+  text-align: center;
+  justify-self: center;
+  color: #b3b3b3;
+  font-size: 15px;
+  line-height: 1.3;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* Add button */
+.add-button {
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  padding: 6px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  justify-self: end;
+  font-size: 14px;
+}
+
+.add-button:hover {
+  background-color: #1db954;
+  border-color: #1db954;
+  color: #000;
+}
+
+
+
+

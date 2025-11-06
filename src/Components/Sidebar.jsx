@@ -1,6 +1,8 @@
 import React from "react";
 import './Sidebar.css'
+import { useNavigate } from "react-router";
 function Sidebar() {
+  const navigate=useNavigate();
   return (
     <div className="sidebar">
       {/* Library with + button */}
@@ -13,7 +15,7 @@ function Sidebar() {
       <div className="playlist">
         <p className="title">Create your first playlist</p>
         <p className="subtext">It’s easy, we’ll help you</p>
-        <button className="btn create-btn">Create Playlist</button>
+        <button onClick={()=>{navigate("/playlists")}} className="btn create-btn">Create Playlist</button>
       </div>
 
       {/* Browse Podcasts */}

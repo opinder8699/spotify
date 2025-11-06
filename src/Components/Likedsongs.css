@@ -1,0 +1,97 @@
+.liked-container {
+  background-color: #121212;
+  color: #fff;
+  min-height: 100vh;
+  padding: 60px 100px;
+  font-family: "Poppins", sans-serif;
+}
+
+.liked-header {
+  margin-bottom: 40px;
+}
+
+.liked-title {
+  font-size: 56px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.liked-count {
+  font-size: 16px;
+  color: #b3b3b3;
+  margin-top: 8px;
+}
+
+/* Empty state */
+.empty-text {
+  color: #b3b3b3;
+  font-size: 16px;
+  margin-top: 40px;
+}
+
+/* Song List */
+.liked-list {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Song Card */
+.liked-card {
+  background-color: #181818;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.liked-card:hover {
+  background-color: #222;
+  transform: scale(1.03);
+}
+
+/* Song Info Section */
+.liked-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  overflow: hidden;
+}
+
+.liked-image {
+  width: 55px;
+  height: 55px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.liked-details {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.liked-title-song {
+  font-weight: 500;
+  font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.liked-artist {
+  font-size: 13px;
+  color: #b3b3b3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Duration (Right Side) */
+.liked-duration {
+  font-size: 14px;
+  color: #b3b3b3;
+}

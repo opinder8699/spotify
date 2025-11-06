@@ -1,0 +1,47 @@
+.searchall {
+  background-color: #121212;
+  color: white;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.filterbuttons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.filterbuttons button {
+  background-color: #1f1f1f;
+  border: none;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.filterbuttons button:hover {
+  background-color: #333;
+}
+
+.filterbuttons .active {
+  background-color: #fff;
+  color: #000;
+  font-weight: 600;
+}
+
+.topresult-heading {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+

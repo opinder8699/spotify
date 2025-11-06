@@ -1,0 +1,59 @@
+.showallartists {
+  background-color: #000;
+  color: white;
+  min-height: 100vh;
+  padding: 30px 40px;
+  font-family: "Poppins", sans-serif;
+}
+
+.showallartiststitle {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  letter-spacing: 0.5px;
+}
+
+/* grid layout for artist cards */
+.artistlist {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  align-items: start;
+}
+
+/* smooth animations */
+.artistlist {
+  transition: all 0.3s ease;
+}
+
+/* responsive styling */
+@media (max-width: 1024px) {
+  .showallartists {
+    padding: 20px 25px;
+  }
+  .showallartiststitle {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .artistlist {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 15px;
+  }
+  .showallartiststitle {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .showallartists {
+    padding: 15px;
+  }
+  .artistlist {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 12px;
+  }
+}

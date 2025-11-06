@@ -5,10 +5,8 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const connection=require('./db.js');
 const bcrypt = require("bcrypt");
-// import axios from "axios";
-// import dotenv from "dotenv";
+const { get } = require('mongoose');
 
-// dotenv.config();
 app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json()); 
@@ -88,14 +86,30 @@ async function getAccessToken() {
   return data.access_token;
 }
 
-
+    const terms3=["b","punjabi","ar","r","d","s",'o','k']
+     const randomTerm4 = terms3[Math.floor(Math.random() * terms3.length)];
+  const urrl=`https://api.spotify.com/v1/search?q=${randomTerm4}&type=artist&limit=10`;
+  const urrrl=`https://api.spotify.com/v1/search?q=${randomTerm4}&type=artist&limit=30`;
 app.get("/api/artists",async (req,res)=>{
   try{
     const token=await getAccessToken();
-    const terms=["b","punjabi","ar","r","d","s",'o','k']
-     const randomTerm = terms[Math.floor(Math.random() * terms.length)];
-  const url=`https://api.spotify.com/v1/search?q=${randomTerm}&type=artist&limit=10`;
-  const response=await fetch(url,{
+  const response=await fetch(urrl,{
+   headers: {
+      Authorization: `Bearer ${token}`, 
+    },
+})
+const data=await response.json();
+return res.json(data);
+  }
+  catch(err){
+        console.error("Error fetching albums:", err);
+    res.status(500).json({ message: "Failed to fetch albums" });
+  }
+})
+app.get("/api/allartists",async (req,res)=>{
+  try{
+    const token=await getAccessToken();
+  const response=await fetch(urrrl,{
    headers: {
       Authorization: `Bearer ${token}`, 
     },
@@ -110,13 +124,30 @@ return res.json(data);
 })
 
 
+     const terms = ["a", "s", "a", "d", "punjabi", "n","dance","k","bollywood","hindi","english"];
+     const randomTerm = terms[Math.floor(Math.random() * terms.length)];
+     const url=`https://api.spotify.com/v1/search?q=${randomTerm}&type=track&limit=10`;
+     const urll=`https://api.spotify.com/v1/search?q=${randomTerm}&type=track&limit=25`;
 app.get("/api/songs",async(req,res)=>{
   try{
     const token =await getAccessToken();
-      const terms = ["a", "s", "a", "d", "punjabi", "n","dance","k","bollywood","hindi","english"];
-    const randomTerm = terms[Math.floor(Math.random() * terms.length)];
-  const url=`https://api.spotify.com/v1/search?q=${randomTerm}&type=track&limit=10`;
     const response=await fetch(url,{
+   headers: {
+      Authorization: `Bearer ${token}`, 
+    },
+})
+const data=await response.json();
+return res.json(data);
+  }
+  catch(err){
+     console.error("Error fetching albums:", err);
+    res.status(500).json({ message: "Failed to fetch albums" });
+  }
+})
+app.get("/api/allsongs",async(req,res)=>{
+  try{
+    const token =await getAccessToken();
+    const response=await fetch(urll,{
    headers: {
       Authorization: `Bearer ${token}`, 
     },
@@ -131,14 +162,14 @@ return res.json(data);
 })
 
 
+       const terms1 = ["punjabi", "pop", "bollywood", "romantic",'dance','hollywood'];
+    const randomTerm1 = terms1[Math.floor(Math.random() * terms1.length)];
+    const urla = `https://api.spotify.com/v1/search?q=${randomTerm1}&type=album&limit=10`;
+     const urlat = `https://api.spotify.com/v1/search?q=${randomTerm1}&type=album&limit=20`;
   app.get("/api/albums",async(req,res)=>{
      try {
       const token =await getAccessToken();
-    const terms = ["punjabi", "pop", "bollywood", "romantic",'dance','hollywood'];
-    const randomTerm = terms[Math.floor(Math.random() * terms.length)];
-
-    const url = `https://api.spotify.com/v1/search?q=${randomTerm}&type=album&limit=10`;
-    const response=await fetch(url,{
+    const response=await fetch(urla,{
    headers: {
       Authorization: `Bearer ${token}`, 
     },
@@ -146,10 +177,104 @@ return res.json(data);
     const data = await response.json();
     return res.json(data);
   } catch (err) {
+     res.status(500).json({ message: "Failed to fetch albums" });
     console.error("Error fetching albums:", err);
-    res.status(500).json({ message: "Failed to fetch albums" });
-  }
+   }
+  })
+  app.get("/api/allalbums",async(req,res)=>{
+      try {
+      const token =await getAccessToken();
+    const response=await fetch(urlat,{
+   headers: {
+      Authorization: `Bearer ${token}`, 
+    },
+});
+    const data = await response.json();
+    return res.json(data);
+  } catch (err) {
+     res.status(500).json({ message: "Failed to fetch albums" });
+    console.error("Error fetching albums:", err);
+   }
   })
 
+  app.post("/search",async(req,res)=>{
+    try{
+    const {value}=req.body;
+    const token= await getAccessToken();
+         const urls=`https://api.spotify.com/v1/search?q=${value}&type=track&limit=10`;
+         const urlab = `https://api.spotify.com/v1/search?q=${value}&type=album&limit=10`;
+         const urrrl=`https://api.spotify.com/v1/search?q=${value}&type=artist&limit=10`;
+         const ress=await fetch(urls,{
+   headers: {
+      Authorization: `Bearer ${token}`, 
+    },
+});
+    const resat=await fetch(urrrl,{
+   headers: {
+      Authorization: `Bearer ${token}`, 
+    },
+});
+    const resab=await fetch(urlab,{
+   headers: {
+      Authorization: `Bearer ${token}`, 
+    },
+});
+     const datas=await ress.json();
+     const datat=await resat.json();
+     const datab=await resab.json();
+
+ return res.json({
+      tracks: datas.tracks,
+      artists: datat.artists,
+      albums: datab.albums,
+    });
+
+    
+    }catch(err){
+          res.status(500).json({ message: "Failed to fetch data" });
+      console.log(err);
+    }
+         
+  })
+
+app.post("/search/songs",async(req,res)=>{
+   const token=await getAccessToken();
+   const {value}=req.body;
+    const urls=`https://api.spotify.com/v1/search?q=${value}&type=track&limit=25`;
+    const response=await fetch(urls,{
+   headers: {
+      Authorization: `Bearer ${token}`, 
+    },
+})
+ const data=await response.json();
+  return res.json(data);
+})
+
+app.post("/search/albums",async(req,res)=>{
+   const token=await getAccessToken();
+   const {value}=req.body;
+    const urls=`https://api.spotify.com/v1/search?q=${value}&type=album&limit=20`;;
+    const response=await fetch(urls,{
+   headers: {
+      Authorization: `Bearer ${token}`, 
+    },
+})
+ const data=await response.json();
+  return res.json(data);
+})
+
+
+app.post("/search/artists",async(req,res)=>{
+   const token=await getAccessToken();
+   const {value}=req.body;
+    const urls=`https://api.spotify.com/v1/search?q=${value}&type=artist&limit=25`;;
+    const response=await fetch(urls,{
+   headers: {
+      Authorization: `Bearer ${token}`, 
+    },
+})
+ const data=await response.json();
+  return res.json(data);
+})
 
 app.listen(5000,() => console.log("Server running on port 5000"));

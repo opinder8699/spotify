@@ -1,0 +1,75 @@
+
+.popularartists-section {
+  margin: 20px 0;
+}
+
+.popularartists-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  margin-bottom: 10px;
+}
+
+.popularartists-header h2 {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.scroll-container {
+  position: relative;
+}
+
+.popularartists {
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+
+  -ms-overflow-style: none;  
+  scrollbar-width: none;     
+}
+.popularartists::-webkit-scrollbar {
+  display: none;
+}
+
+.artistcards {
+  display: inline-block;
+  margin-right: 12px;
+}
+
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #121212;   
+  border: none;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5); 
+}
+
+.scroll-btn svg {
+  stroke: #ffffff;   
+  transition: stroke 0.2s ease;
+}
+
+
+.scroll-btn:hover svg {
+  stroke: white;   
+ 
+}
+
+.scroll-btn.left {
+  left: 5px;
+}
+
+.scroll-btn.right {
+  right: 5px;
+}

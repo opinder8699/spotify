@@ -1,24 +1,9 @@
-
-import './Popularartists.css'
+import './Searchartists.css'
 import { useRef, useState, useEffect } from 'react'
 import Artistcard from './Artistcard.jsx'
 
-function Popularartists(){
-   const [artists,setArtists]=useState([]);
-  useEffect(()=>{
-    const fetchartists=async()=>{
-      try{
-      const url="http://localhost:5000/api/artists";
-      const response=await fetch(url);
-      const data=await response.json();
-      setArtists(data.artists.items);
-      }
-      catch(err){
-      console.log(err);
-      }
-    }
-    fetchartists();
-  },[])
+function Searchartists({artists}){
+ 
    const scrollRef = useRef(null);
     const [showLeft, setShowLeft] = useState(false);
     const [showRight, setShowRight] = useState(true);
@@ -55,8 +40,7 @@ function Popularartists(){
     <>
       <div className="popularartists-section">
         <div className="popularartists-header">
-          <h2>Popular Artists</h2>
-          <a href="/artists" className="show-all">Show all</a>
+          <h2>Artists</h2>
         </div>
 
         <div className="scroll-container">
@@ -89,5 +73,4 @@ function Popularartists(){
   )
 }
 
-export default Popularartists 
-
+export default Searchartists 

@@ -11,6 +11,16 @@ import Signup from './Components/Signup';
 import Signuppassword from './Components/Signuppassword';
 import { BrowserRouter, Routes, Route ,Outlet} from "react-router-dom";
 import TermsandConditions from './Components/TermsandConditions';
+import Songshowall from './Components/Songshowall';
+import Showallalbums from './Components/Showallalbums';
+import Showallartists from './Components/Showallartists';
+import Searchpage from './Components/Searchpage';
+import Songssearch from './Components/Songssearch';
+import Albumsearch from './Components/Albumsearch';
+import Artistsearch from './Components/Artistsearch';
+import PlaylistPage from './Components/PlaylistPage';
+
+
 function Layout() {
   return (
     <>
@@ -32,6 +42,14 @@ function App() {
       <Routes>
         <Route element={<Layout/>}>
         <Route path="/home" element={<Maincontent/>} />
+         <Route path="/songs" element={<Songshowall/>} />
+          <Route path="/artists" element={<Showallartists/>} />
+          <Route path="/albums" element={<Showallalbums/>} />
+          <Route path="/search" element={<Searchpage/>} />
+          <Route path="/search/songs" element={<Songssearch/>} />
+          <Route path="/search/albums" element={<Albumsearch/>} />
+           <Route path="/search/artists" element={<Artistsearch/>} />
+            <Route path="/playlists" element={<PlaylistPage/>} />
         </Route>
         <Route path="/" element={<Login />} />
          <Route path="/login" element={<Login />} />

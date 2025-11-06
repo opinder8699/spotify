@@ -1,5 +1,5 @@
 .songcard {
-  width: 180px;                  
+  width: 180px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,10 +17,10 @@
 }
 
 .imagewrapper {
-  position: relative;         
+  position: relative;
   width: 100%;
-  height: 120px;             
-  border-radius: 8px;         
+  height: 120px;
+  border-radius: 8px;
   overflow: hidden;
 }
 
@@ -28,7 +28,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 8px;          
+  border-radius: 8px;
 }
 
 .songname {
@@ -37,16 +37,15 @@
   color: #fff;
   text-align: center;
   margin: 5px 0;
-  display: -webkit-box;           
+  display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;          
+  -webkit-line-clamp: 2;
   line-clamp: 2;
-  overflow: hidden;               
+  overflow: hidden;
   line-height: 1.2em;
-  max-height: calc(1.2em * 2);    
+  max-height: calc(1.2em * 2);
   text-overflow: ellipsis;
 }
-
 
 .singername {
   font-size: 14px;
@@ -54,23 +53,23 @@
   color: #aaa;
   text-align: center;
   margin-top: 2px;
-  width: 100%;                  
-  display: -webkit-box;         
+  width: 100%;
+  display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;    
-   line-clamp: 2;   
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 1.2em;
   max-height: calc(1.2em * 2);
-  word-break: break-word;      
+  word-break: break-word;
 }
 
-
+/* ▶️ Play Button */
 .playbutton {
   position: absolute;
-  bottom: 5px;               
-  right: 5px;                
+  bottom: 5px;
+  right: 5px;
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -82,17 +81,55 @@
   justify-content: center;
   font-size: 16px;
   cursor: pointer;
-  opacity: 0;                
+  opacity: 0;
   transition: opacity 0.2s ease, transform 0.2s ease, filter 0.2s ease;
 }
 
 .imagewrapper:hover .playbutton {
-  opacity: 1;                
+  opacity: 1;
 }
 
 .playbutton:hover .playicon {
-  transform: scale(1.2);     
-  filter: brightness(1.2);   
+  transform: scale(1.2);
+  filter: brightness(1.2);
   transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+/* ❤️ Like Button */
+.likebutton {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+.imagewrapper:hover .likebutton {
+  opacity: 1;
+}
+
+.likebutton:hover {
+  transform: scale(1.1);
+}
+
+/* When song is liked */
+.liked {
+  color: #1db954;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* Slight glow when liked */
+.liked:hover {
+  box-shadow: 0 0 5px #1db954;
 }
 
