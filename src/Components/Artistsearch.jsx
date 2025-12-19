@@ -14,9 +14,10 @@ function Artistsearch() {
 
     const fetchsongs = async () => {
       try {
-        const response = await fetch("http://localhost:5000/search/artists", {
+        const response = await fetch("/api/search/artists", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
+           credentials: "include",
           body: JSON.stringify({ value }),
         });
 

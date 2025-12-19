@@ -1,0 +1,46 @@
+.album-detail {
+  padding: 60px;
+  color: white;
+}
+
+.album-header {
+  display: flex;
+  gap: 30px;
+  align-items: flex-end;
+}
+
+.album-big-img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+}
+
+.section-title {
+  margin-top: 40px;
+  font-size: 22px;
+}
+
+.album-track {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px;
+}
+
+.album-track:hover {
+  background: #1e1e1e;
+}
+
+.track-name {
+  flex: 1;
+  cursor: pointer;
+}
+
+.preview-btn {
+  background: #1db954;
+  border: none;
+  color: black;
+  padding: 6px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}

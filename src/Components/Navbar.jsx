@@ -42,7 +42,7 @@ function Navbar() {
         <button className="nav-btn">Premium</button>
         <button className="nav-btn">Support</button>
         <button className="nav-btn">Download</button>
-        <div className="profile-icon">
+        <div className="profile-icon" onClick={() => navigate("/profile")}>
           <FaUserCircle className="profile-img" />
         </div>
       </div>

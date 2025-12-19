@@ -8,8 +8,10 @@ function Popularartists(){
   useEffect(()=>{
     const fetchartists=async()=>{
       try{
-      const url="http://localhost:5000/api/artists";
-      const response=await fetch(url);
+      const url="/api/artists";
+      const response=await fetch(url,{
+         credentials: "include"
+      });
       const data=await response.json();
       setArtists(data.artists.items);
       }

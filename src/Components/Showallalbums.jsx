@@ -8,8 +8,10 @@ function Showallalbums() {
   useEffect(() => {
     const fetchAlbums = async () => {
       try {
-        const url = "http://localhost:5000/api/allalbums"; 
-        const response = await fetch(url);
+        const url = "/api/allalbums"; 
+        const response = await fetch(url,{
+           credentials: "include"
+        });
         const data = await response.json();
         setAlbums(data.albums.items);
         console.log(data);

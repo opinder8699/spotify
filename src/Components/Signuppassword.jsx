@@ -25,7 +25,7 @@ export default function Signuppassword() {
 
     try {
 
-      const res = await axios.post("http://localhost:5000/setpassword", {
+      const res = await axios.post("/api/setpassword", {
         userId,
         password,
       });

@@ -8,7 +8,9 @@ function Popularalbums() {
   useEffect(() => {
     const fetchAlbums = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/albums");
+        const response = await fetch("/api/albums",{
+             credentials: "include"
+        });
         const data = await response.json();
         setAlbums(data.albums.items);
       } catch (err) {

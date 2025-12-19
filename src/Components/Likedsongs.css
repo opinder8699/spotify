@@ -95,3 +95,16 @@
   font-size: 14px;
   color: #b3b3b3;
 }
+.liked-remove-btn {
+  background: transparent;
+  border: none;
+  color: #b3b3b3;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.liked-remove-btn:hover {
+  color: #ff4d4d;
+  transform: scale(1.2);
+}

@@ -1,125 +1,130 @@
+/* ---------- SIDEBAR ---------- */
 .sidebar {
   width: 260px;
   height: 100vh;
-  background-color: #000;
-  color: #b3b3b3;
-  padding: 20px;
+  background: #000;
+  color: #fff;
   display: flex;
   flex-direction: column;
-  font-family: Arial, Helvetica, sans-serif;
+  padding: 16px;
+  box-sizing: border-box;
+  font-family: "Circular Std", Arial, sans-serif;
 }
 
-/* Make all content except footer take remaining space */
-.sidebar > :not(.footer) {
-  flex-grow: 1;
-}
-
-/* Library row */
+/* ---------- LIBRARY HEADER ---------- */
 .library {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
+  align-items: center;
+  margin-bottom: 14px;
 }
 
 .library h3 {
-  font-size: 14px;
-  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
 }
 
-/* Add button */
 .add-btn {
   background: none;
   border: none;
   color: #b3b3b3;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 20px;
   cursor: pointer;
-  transition: color 0.3s;
 }
 
 .add-btn:hover {
-  color: #1db954; /* Spotify green */
-}
-
-/* Playlist & Podcasts boxes */
-.playlist, .podcasts {
-  background: #1a1a1a;
-  padding: 16px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
-
-.title {
-  font-size: 14px;
-  font-weight: 600;
   color: #fff;
-  margin-bottom: 5px;
 }
 
-.subtext {
-  font-size: 12px;
-  color: #b3b3b3;
-  margin-bottom: 12px;
-}
-
-/* Buttons */
-.btn {
+/* ---------- CREATE PLAYLIST BUTTON ---------- */
+.create-btn {
+  width: 100%;
+  background: #fff;
+  color: #000;
   border: none;
   border-radius: 20px;
-  padding: 7px 16px;
+  padding: 8px 0;
   font-size: 13px;
-  font-weight: bold;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.3s;
+  margin-bottom: 14px;
+  transition: all 0.2s ease;
 }
 
-.create-btn, .browse-btn {
-  background: #fff;
+.create-btn:hover {
+  background: #1db954;
   color: #000;
 }
 
-.create-btn:hover, .browse-btn:hover {
-  background: #1db954;
+/* ---------- LIBRARY LIST ---------- */
+.library-list {
+  flex: 1;
+  overflow-y: auto;
+  margin-top: 4px;
+}
+
+/* Liked Songs + Playlist items */
+.library-item {
+  padding: 8px 6px;
+  font-size: 14px;
+  color: #b3b3b3;
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.library-item:hover {
+  background: #1a1a1a;
   color: #fff;
 }
 
-/* Footer */
+/* Empty text */
+.empty-text {
+  font-size: 12px;
+  color: #777;
+  margin-top: 8px;
+}
+
+/* ---------- FOOTER ---------- */
 .footer {
-  margin-top: auto; /* push footer to bottom */
-  margin-bottom: 20px; /* spacing from bottom */
+  margin-top: auto;
+  padding-top: 16px;
 }
 
 .footer ul {
   list-style: none;
-  font-size: 12px;
-  line-height: 22px;
-  margin-bottom: 15px;
   padding: 0;
+  margin: 0 0 12px 0;
 }
 
 .footer li {
+  font-size: 12px;
+  color: #b3b3b3;
+  line-height: 22px;
   cursor: pointer;
-  transition: color 0.3s;
 }
 
 .footer li:hover {
-  color: #1db954;
+  color: #fff;
 }
 
+/* Language button */
 .lang-btn {
   background: none;
   border: 1px solid #b3b3b3;
   color: #fff;
   border-radius: 20px;
-  padding: 5px 12px;
+  padding: 6px 14px;
   font-size: 12px;
   cursor: pointer;
-  transition: all 0.3s;
 }
 
 .lang-btn:hover {
   border-color: #fff;
-  color: #1db954;
 }
+
+
+
 

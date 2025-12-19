@@ -8,8 +8,10 @@ function Songshowall({ likedsongs, setLikedsongs }) {
   useEffect(() => {
     const fetchallsongs = async () => {
       try {
-        const url = "http://localhost:5000/api/allsongs";
-        const response = await fetch(url);
+        const url = "/api/allsongs";
+        const response = await fetch(url,{
+           credentials: "include"
+        });
         const data = await response.json();
         setAllsongs(data.tracks.items);
         console.log(data);

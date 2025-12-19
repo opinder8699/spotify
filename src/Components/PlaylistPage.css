@@ -10,7 +10,12 @@
 /* ---------- HEADER ---------- */
 .playlist-header {
   margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
 }
+
 
 .playlist-title {
   font-size: 56px;
@@ -275,6 +280,55 @@
   color: #000;
 }
 
+.save-playlist-btn {
+  background-color: #1db954;
+  color: #000;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.save-playlist-btn:hover {
+  background-color: #1ed760;
+  transform: scale(1.05);
+}
+.save-playlist-btn.saved {
+  background-color: #3a3a3a;
+  color: #b3b3b3;
+  cursor: default;
+  transform: none;
+}
+
+.save-playlist-btn:disabled {
+  opacity: 0.7;
+}
+.delete-playlist-btn {
+  background: transparent;
+  border: 1px solid #ff4d4d;
+  color: #ff4d4d;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-left: 15px;
+}
+
+.delete-playlist-btn:hover {
+  background: #ff4d4d;
+  color: #000;
+  transform: scale(1.05);
+}
+
+.delete-playlist-btn:active {
+  transform: scale(0.95);
+}
 
 
 

@@ -14,9 +14,10 @@ function Albumsearch() {
 
     const fetchalbums = async () => {
       try {
-        const response = await fetch("http://localhost:5000/search/albums", {
+        const response = await fetch("/api/search/albums", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
+           credentials: "include",
           body: JSON.stringify({ value }),
         });
 

@@ -1,108 +1,82 @@
 .albumcard {
   width: 180px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #121212;
+  background: #121212;
   border-radius: 12px;
   padding: 10px;
-  margin: 10px;
   cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease;
-  box-sizing: border-box;
-  height: 230px; 
+  transition: 0.2s ease;
 }
 
 .albumcard:hover {
-  transform: scale(1.05);
-  background-color: #1a1a1a;
+  background: #1a1a1a;
+  transform: scale(1.04);
 }
 
+/* IMAGE */
 .imagewrapper {
   position: relative;
   width: 100%;
-  height: 120px;
-  border-radius: 8px;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
+  border-radius: 8px;
 }
-.albumimage{
+
+.albumimage {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 8px;  
 }
-.a {
-  font-size: 16px;
+
+/* TEXT WRAPPER */
+.albumtext {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* ALBUM NAME */
+.albumname {
+  font-size: 15px;
   font-weight: 600;
   color: #fff;
-  text-align: center;
-  margin: 5px 0;
+  line-height: 1.3;
+
   display: -webkit-box;
-  -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   line-clamp: 2;
-  white-space: normal; 
-  overflow: hidden;
-  line-height: 1.2em;
-  max-height: calc(1.2em * 2);
-  text-overflow: ellipsis;
-}
-
-
-.artistnames {
- font-size: 14px;
-  font-weight: 500;
-  color: #aaa;
-  text-align: center;
-  margin-top: 2px;
-  width: 100%;                  
-  display: -webkit-box;         
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;    
-   line-clamp: 2;   
-    white-space: normal; 
   overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 1.2em;
-  max-height: calc(1.2em * 2);
-  word-break: break-word;         
 }
 
+/* ARTIST */
+.artistnames {
+  font-size: 13px;
+  color: #aaa;
+  line-height: 1.3;
 
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 
-
+/* PLAY BUTTON */
 .playbutton {
   position: absolute;
-  bottom: 5px;
-  right: 5px;
+  bottom: 8px;
+  right: 8px;
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background-color: #1db954;
+  background: #1db954;
   border: none;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  cursor: pointer;
+  color: black;
   opacity: 0;
-  transition: opacity 0.2s ease, transform 0.2s ease, filter 0.2s ease;
+  transition: 0.2s ease;
 }
 
 .imagewrapper:hover .playbutton {
   opacity: 1;
 }
-
-
-.playbutton:hover .playicon {
-  transform: scale(1.2);
-  filter: brightness(1.2);
-  transition: transform 0.2s ease, filter 0.2s ease;
-}
-
-
-
-
-
-

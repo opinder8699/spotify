@@ -26,10 +26,12 @@ const Login = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/login", {
+      const res = await axios.post("/api/login", {
         email,
         password,
-      });
+      }, {
+    withCredentials: true, 
+  });
 
       console.log("✅ Login response:", res.data);
 

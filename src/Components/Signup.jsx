@@ -19,7 +19,7 @@ const validateEmail = async(e) => {
     setError("");
     inputref.current.style.border = "1px solid #333"; 
      try{
-      const res=await axios.post("http://localhost:5000/Signup",{email});
+      const res=await axios.post("/api/Signup",{email});
       if(res.data.success){
         const userId = res.data.user._id;
         navigate("/setpassword",{state :{userId,email}}); 

@@ -19,9 +19,10 @@ function Searchpage() {
 
     async function fetchData() {
       try {
-        const response = await fetch("http://localhost:5000/search", {
+        const response = await fetch("/api/search", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
+           credentials: "include",
           body: JSON.stringify({ value }),
         });
         const data = await response.json();

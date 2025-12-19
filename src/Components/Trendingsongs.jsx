@@ -11,7 +11,9 @@ function Trendingsongs({ likedsongs, setLikedsongs }) {
     useEffect(()=>{
         const fetchSongs=async()=>{
             try{
-            const response=await fetch("http://localhost:5000/api/songs");
+            const response=await fetch("/api/songs",{
+                 credentials: "include"
+            });
             const data=await response.json();
              setSongs(data.tracks.items);
             }catch(err){
@@ -69,7 +71,7 @@ function Trendingsongs({ likedsongs, setLikedsongs }) {
                         <div className="songcard-wrapper" key={index}>
                             <Songcard song={song }
                               likedsongs={likedsongs}
-          setLikedsongs={setLikedsongs}
+                              setLikedsongs={setLikedsongs}
                             />
                         </div>
                     ))}
