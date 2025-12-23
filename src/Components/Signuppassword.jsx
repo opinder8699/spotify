@@ -34,7 +34,7 @@ export default function Signuppassword() {
 
       if (res.data.success) {
         setMessage(res.data.message);
-        setTimeout(() => navigate("/termsandconditions"), 1500); 
+        setTimeout(() => navigate("/termsandconditions"), 1200); 
       } else {
         if (res.data.message === "User not found") {
         alert("User not found! Please sign up .");

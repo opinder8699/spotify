@@ -319,7 +319,6 @@ app.post("/api/like", verifyToken, async (req, res) => {
       });
     }
 
-    //  check already liked
     const alreadyLiked = user.likedsongs.some(
       (song) => song.songId === songId
     );
@@ -331,7 +330,7 @@ app.post("/api/like", verifyToken, async (req, res) => {
       });
     }
 
-    // ✅ add liked song
+ 
     user.likedsongs.push({
       songId,
       name,

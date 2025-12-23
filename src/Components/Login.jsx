@@ -9,44 +9,33 @@ const Login = () => {
   const [error, setError] = useState("");
   const inputref = useRef(null);
   const navigate = useNavigate();
-
-  const checkBlank = (e) => {
-    e.preventDefault();
-    if (email.trim() === "") {
-      setError("Please enter your Spotify email address.");
-      inputref.current.focus();
-      inputref.current.style.borderColor = "#e91429";
-      inputref.current.style.outline = "none";
-    } else {
-      setError("");
-      inputref.current.style.borderColor = "#333";
-    }
-  };
-
   const handleClick = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await axios.post("/api/login", {
-        email,
-        password,
-      }, {
-    withCredentials: true, 
-  });
+  e.preventDefault();
 
-      console.log("✅ Login response:", res.data);
+  if (email.trim() === "") {
+    setError("Please enter your Spotify email address.");
+    inputref.current.focus();
+    inputref.current.style.borderColor = "#e91429";
+    return; 
+  }
 
-      if (res.data.success) {
-        setError("");
-        navigate("/home");
-      } else {
-        setError(res.data.message);
-      }
-    } catch (err) {
-      console.error("❌ Login error:", err);
-      setError("Server error. Please try again later.");
+  try {
+    const res = await axios.post(
+      "/api/login",
+      { email, password },
+      { withCredentials: true }
+    );
+
+    if (res.data.success) {
+      setError("");
+      navigate("/home");
+    } else {
+      setError(res.data.message);
     }
-  };
-
+  } catch (err) {
+    setError("Server error. Please try again later.");
+  }
+};
   return (
     <div className="login-container">
       <div className="login-box">
